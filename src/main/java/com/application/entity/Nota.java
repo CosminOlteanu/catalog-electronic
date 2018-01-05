@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter @Setter
 @Entity
@@ -21,8 +22,15 @@ public class Nota {
 	@Column(name = "N_S_ID")
 	private Long studentId;
 
-	@Column(name = "N_M_ID")
+	@Column(name = "N_M_ID", updatable = false, insertable = false)
 	private Long materieId;
+
+	@JoinColumn(name = "N_M_ID")
+	@OneToOne
+	private Materie materie;
+
+	@Column(name = "N_DATA")
+	private Date data;
     
 }
 

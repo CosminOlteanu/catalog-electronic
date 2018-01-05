@@ -1,23 +1,49 @@
 package com.application;
 
+import com.application.dto.AnInfoDto;
+import com.application.dto.NotaStudentDto;
+import com.application.dto.StudentInfoDto;
 import com.application.entity.Student;
 import com.application.repository.StudentRepository;
+import com.application.service.StudentService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
-@Controller    // This means that this class is a Controller
-@RequestMapping(path="/student") // This means URL's start with /demo (after Application path)
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@RestController
+@RequestMapping(path="/student", produces = APPLICATION_JSON_VALUE)
 public class MainController {
 
 	@Autowired
 	private StudentRepository studentRepository;
+	@Autowired
+	private StudentService studentService;
 
 	@GetMapping(path="/all")
-	public @ResponseBody Iterable<Student> getAllStudents() {
+	public Iterable<Student> getAllStudents() {
 		return studentRepository.findAll();
 	}
+
+	@GetMapping(value = "/{studentId}/info")
+	public StudentInfoDto getStudentInfo(@PathVariable Long studentId) throws NotFoundException {
+		return studentService.getBasingInfo(studentId);
+	}
+
+	@GetMapping(value = "/{studentId}")
+	public List<NotaStudentDto> getNoteByStudentIdAndYear(@PathVariable Long studentId,
+														  @RequestParam(value = "an") Long an,
+														  @RequestParam(value = "semestru") Long semestru) throws NotFoundException {
+		return studentService.getNote(studentId, an, semestru);
+	}
+
+
+	@GetMapping(value = "/{studentId}/semestre")
+	public List<AnInfoDto> getStudenSemestre(@PathVariable Long studentId) throws NotFoundException {
+		return studentService.getSemestreDeStudiu(studentId);
+	}
+
 }

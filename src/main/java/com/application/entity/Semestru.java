@@ -7,13 +7,19 @@ import javax.persistence.*;
 
 @Getter @Setter
 @Entity
-@Table(name = "AN_UNIVERSITAR")
-public class AnUniversitar {
+@Table(name = "SEMESTRU")
+public class Semestru {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "AU_ID")
+	@Column(name = "SM_ID")
 	private Long id;
 
-    }
+	@Column(name = "SM_NUMAR")
+    private Long numar;
+
+	@Column(name = "SM_AU_ID")
+	private Long anUniversitarId;
+    
+}
 

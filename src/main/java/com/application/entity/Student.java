@@ -24,8 +24,12 @@ public class Student {
 	@Column(name = "S_CNP")
 	private String cnp;
 
-	@Column(name = "S_G_ID")
+	@Column(name = "S_G_ID", updatable = false, insertable = false)
 	private Long groupaId;
+
+	@JoinColumn(name = "S_G_ID")
+	@ManyToOne
+	private Grupa grupa;
     
 }
 

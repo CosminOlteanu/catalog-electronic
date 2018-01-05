@@ -30,8 +30,12 @@ public class Materie {
 	@Column(name = "M_G_ID")
 	private Long groupaId;
 
-	@Column(name = "M_AU_ID")
-	private Long anUniversitarId;
+	@Column(name = "M_SM_ID")
+	private Long semestruId;
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "materie", fetch = FetchType.LAZY)
+	private Nota nota;
+
 
 }
 
