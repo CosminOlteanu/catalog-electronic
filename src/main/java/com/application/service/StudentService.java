@@ -1,9 +1,6 @@
 package com.application.service;
 
-import com.application.dto.AnInfoDto;
-import com.application.dto.NotaStudentDto;
-import com.application.dto.SemestruDto;
-import com.application.dto.StudentInfoDto;
+import com.application.dto.*;
 import com.application.entity.*;
 import com.application.repository.*;
 import javassist.NotFoundException;
@@ -131,5 +128,20 @@ public class StudentService {
         });
 
         return aniUniversitari;
+    }
+
+    public StudentDto getStudentByNumeAndCnp(String nume, String cnp) throws NotFoundException {
+        Student student = studentRepository.findByNumeAndCnp(nume, cnp);
+        if (student == null) {
+            throw new NotFoundException("Nu s-a gasit niciun student");
+        }
+        StudentDto studentDto = new StudentDto();
+        studentDto.setId(student.getId());
+        studentDto.setNume(student.getNume());
+        studentDto.setPrenume(student.getPrenume());
+        studentDto.setGrupaId(student.getGroupaId());
+        studentDto.setCnp(student.getCnp());
+
+        return studentDto;
     }
 }

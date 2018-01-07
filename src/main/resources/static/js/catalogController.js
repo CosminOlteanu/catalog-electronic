@@ -14,6 +14,7 @@ function getCookie(cname) {
     return "";
 }
 var student_id=getCookie("student_id")
+var obtiuniAni = "";
 
 console.log("student_id="+student_id)
 $.ajax({
@@ -22,7 +23,10 @@ $.ajax({
   data: '',
   cache: false,
   success: function(result){
-	  var obj = JSON.parse(result)
-	  console.log("obj="+obj)
+	  console.log("test")
+	  for(var i=0; i<result.length; i++){
+		  obtiuniAni+=" <option value=" + result[i].an + ">" + result[i].an + "</option> " 
+	  }
+	  console.log(obtiuniAni)
   }
 });
