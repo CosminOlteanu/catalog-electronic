@@ -29,7 +29,7 @@ public class ServiceExceptionHandler {
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     @ResponseBody
     public String handledException (Exception ex) {
-        log.error("Something unexpectedly crashed", ex);
+//       log.error("Something unexpectedly crashed", ex);
         return "Something unexpectedly crashed";
     }
 }

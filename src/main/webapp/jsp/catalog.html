@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Catalog-electronic</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/catalogController.js"></script>
+</head>
+<body>
+
+
+ <form action='http://localhost:8080/logout' method='post' class="form-signin" >       
+
+      <button class="btn btn-lg btn-primary" type="submit">Delogare</button>   
+    </form>
+    
+
+<table>
+  <tr>
+    <td>Anul:</td>
+    <td><select class="selectpicker" id="an">
+  <option value=1>I</option>
+  <option value=2>I</option>
+</select></td>
+  </tr>
+  <tr>
+    <td>Semestrul:</td>
+    <td><select class="selectpicker" id="semestru">
+  <option value=1>I</option>
+  <option value=2>II</option>
+</select></td>
+  </tr>
+</table>
+
+<div class="container">          
+  <table class="table" id="table">
+    <thead>
+      <tr>
+    <th>Profesor</th>
+    <th>Materie</th>
+    <th>Tip Examen</th>
+    <th>Numar credite</th>
+    <th>Nota</th>
+    <th>Data sustinerii</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

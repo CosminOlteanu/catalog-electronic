@@ -31,6 +31,54 @@ public class Nota {
 
 	@Column(name = "N_DATA")
 	private Date data;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getValoare() {
+		return valoare;
+	}
+
+	public void setValoare(String valoare) {
+		this.valoare = valoare;
+	}
+
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+
+	public Long getMaterieId() {
+		return materieId;
+	}
+
+	public void setMaterieId(Long materieId) {
+		this.materieId = materieId;
+	}
+
+	public Materie getMaterie() {
+		return materie;
+	}
+
+	public void setMaterie(Materie materie) {
+		this.materie = materie;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
     
 }
 

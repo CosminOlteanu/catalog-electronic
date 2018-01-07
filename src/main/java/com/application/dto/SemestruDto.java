@@ -7,4 +7,17 @@ import lombok.Setter;
 public class SemestruDto {
     private Long semestru;
     private Boolean inCurs;
+	public Long getSemestru() {
+		return semestru;
+	}
+	public void setSemestru(Long semestru) {
+		this.semestru = semestru;
+	}
+	public Boolean getInCurs() {
+		return inCurs;
+	}
+	public void setInCurs(Boolean inCurs) {
+		this.inCurs = inCurs;
+	}
+    
 }
