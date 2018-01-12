@@ -21,16 +21,14 @@
 <table>
   <tr>
     <td>Anul:</td>
-    <td><select class="selectpicker" id="an">
-  <option value=1>I</option>
-  <option value=2>I</option>
+    <td><select class="selectpicker" id="an" onchange="getTable()">
 </select></td>
   </tr>
   <tr>
     <td>Semestrul:</td>
-    <td><select class="selectpicker" id="semestru">
-  <option value=1>I</option>
-  <option value=2>II</option>
+    <td><select class="selectpicker" id="semestru" onchange="getTable()">
+  <option value=1>1</option>
+  <option value=2>2</option>
 </select></td>
   </tr>
 </table>
@@ -47,7 +45,8 @@
     <th>Data sustinerii</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id=tbody>
+    <span></span>
     </tbody>
   </table>
 </div>

@@ -14,19 +14,42 @@ function getCookie(cname) {
     return "";
 }
 var student_id=getCookie("student_id")
-var obtiuniAni = "";
 
-console.log("student_id="+student_id)
 $.ajax({
   type: "GET",
   url: "/student/" +student_id + "/semestre",
   data: '',
   cache: false,
   success: function(result){
-	  console.log("test")
 	  for(var i=0; i<result.length; i++){
-		  obtiuniAni+=" <option value=" + result[i].an + ">" + result[i].an + "</option> " 
+		  $('#an').append($('<option>', {
+			    value: result[i].an,
+			    text: result[i].an
+			}));
+		 
 	  }
-	  console.log(obtiuniAni)
   }
 });
+
+function getTable(){
+document.getElementById("tbody").innerHTML = " <span></span>";
+	$.ajax({
+		  type: "GET",
+		  url: "/student/" +student_id + "?an="+
+			$( "#an" ).val()+"&semestru="+
+			$( "#semestru" ).val(),
+		  data: '',
+		  cache: false,
+		  success: function(result){
+			  for(var i=0; i<result.length; i++){
+				  $('#table span:first').after('<tr><td>'+ result[i].profesor+'</td>'+
+				  '<td>'+ result[i].materie+'</td>'+
+				  '<td>'+ result[i].tipExamen+'</td>'+
+				  '<td>'+ result[i].numarCredite+'</td>'+
+				  '<td>'+ result[i].nota+'</td>'+
+				  '<td>'+ result[i].data+'</td><td>');
+			  }
+		  }
+		});
+}
+setTimeout(function(){ getTable(); }, 500);
