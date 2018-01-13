@@ -12,26 +12,38 @@
 <body>
 
 
- <form action='http://localhost:8080/logout' method='post' class="form-signin" >       
+<div style="display: flex">
+    <div style="margin-left: 20px; margin-bottom: 20px; width: 50%; display: inline-block">
 
-      <button class="btn btn-lg btn-primary" type="submit">Delogare</button>   
-    </form>
-    
+         Student: <span id="nume"></span><br>
+         Grupa: <span id="grupa"></span><br>
+         Facultate: <span id="facultate"></span><br>
+         Specializare: <span id="specializare"></span><br>
 
-<table>
-  <tr>
-    <td>Anul:</td>
-    <td><select class="selectpicker" id="an" onchange="getTable()">
-</select></td>
-  </tr>
-  <tr>
-    <td>Semestrul:</td>
-    <td><select class="selectpicker" id="semestru" onchange="getTable()">
-  <option value=1>1</option>
-  <option value=2>2</option>
-</select></td>
-  </tr>
-</table>
+
+        <table>
+          <tr>
+            <td>Anul:</td>
+            <td><select class="selectpicker" id="an" onchange="getTable()">
+        </select></td>
+          </tr>
+          <tr>
+            <td>Semestrul:</td>
+            <td><select class="selectpicker" id="semestru" onchange="getTable()">
+          <option value=1>1</option>
+          <option value=2>2</option>
+        </select></td>
+          </tr>
+        </table>
+    </div>
+
+    <div align="right" style="width: 50%; margin-top: 10px; margin-right: 10px">
+        <form style="align-items: flex-end" action='http://localhost:8080/logout' method='post' class="form-signin" >
+
+            <button class="btn btn-lg btn-primary" type="submit">Delogare</button>
+        </form>
+    </div>
+</div>
 
 <div class="container">          
   <table class="table" id="table">

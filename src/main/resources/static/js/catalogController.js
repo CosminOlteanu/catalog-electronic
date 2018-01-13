@@ -31,6 +31,20 @@ $.ajax({
   }
 });
 
+$.ajax({
+    type: "GET",
+    url: "/student/" +student_id + "/info",
+    data: '',
+    cache: false,
+    success: function(result){
+        document.getElementById("nume").innerHTML = " <span>" +  result.nume + " " + result.prenume + "</span>";
+        document.getElementById("grupa").innerHTML = " <span>" +  result.grupa + "</span>";
+        document.getElementById("facultate").innerHTML = " <span>" +  result.facultate + "</span>";
+        document.getElementById("specializare").innerHTML = " <span>" +  result.specializare + "</span>";
+        result;
+    }
+});
+
 function getTable(){
 document.getElementById("tbody").innerHTML = " <span></span>";
 	$.ajax({
